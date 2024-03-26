@@ -3,6 +3,7 @@
 //PAGES
 import Homepage from './pages/Homepage';
 import MainLayout from './layouts/MainLayout';
+import Jobspage from './pages/Jobspage';
 
 //ROUTER
 import {
@@ -18,6 +19,8 @@ function App() {
       //PARENT ROUTE WITH SUBROUTES
       <Route path='/' element={<MainLayout />}>
         <Route index element={<Homepage/>} />
+        <Route path='/jobs' element={<Jobspage/>} />
+        
       </Route>
 
     )
