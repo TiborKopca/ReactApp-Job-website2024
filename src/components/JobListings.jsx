@@ -20,9 +20,12 @@ const JobListings = ({ isHome = false }) => {
   //upon the change of the variable, it will do stuff, empty array = runs once, without it will be forever in loop
   useEffect(() => {
     const fetchJobs = async () => {
+      //Showing different results based on URL, we want show 3 results on Homepage
+      const apiURL = isHome ? 'http://localhost:4000/jobs?_limit=3' : 'http://localhost:4000/jobs';
+
       //try-catch is not obligatory
       try {
-        const res = await fetch("http://localhost:4000/jobs");
+        const res = await fetch(apiURL);
         const data = await res.json();
         setJobs(data);
       } catch (error) {
