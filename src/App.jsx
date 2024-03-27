@@ -17,7 +17,7 @@ import {
   RouterProvider} from 'react-router-dom'
  
 function App() {
-  //POST REQUEST from the new job form
+  //ADD NEW JOB/ENTRY POST REQUEST from the new job form
   const addJob = async (newJobData) => {
     // console.log(newJobData);
     const res = await fetch('/api/jobs', {
@@ -30,6 +30,15 @@ function App() {
     return;
   };
 
+  //DELETE JOB/ENTRY
+  const deleteJob = async (id) => {
+    // console.log('delete',id)
+    const res = await fetch(`/api/jobs/${id}`, {
+      method: 'DELETE',
+    });
+    return;
+  }
+
   //CREATING ROUTER
   const router = createBrowserRouter(
     //CREATING ROUTES DEPENDING ON THE PATH
@@ -39,7 +48,7 @@ function App() {
         <Route index element={<Homepage/>} />
         <Route path='/jobs' element={<Jobspage/>} />
         <Route path='/add-job' element={<AddJobPage addJobSubmit={addJob}/>} />
-        <Route path='/jobs/:id' element={<JobPage/>} loader={jobLoader}/>
+        <Route path='/jobs/:id' element={<JobPage deleteJob={deleteJob}/>} loader={jobLoader}/>
         <Route path='*' element={<NotFound/>} />
       </Route>
     )

@@ -97,20 +97,6 @@
         "contactEmail": "ha-ha@palma.cat",
         "contactPhone": "0121451513"
       }
-    },
-    {
-      "id": "b39b",
-      "title": "asdfasd",
-      "type": "Full-Time",
-      "location": "asdfasd",
-      "description": "asdfasd",
-      "salary": "",
-      "company": {
-        "name": "adsfasd",
-        "description": "adsfad",
-        "contactEmail": "asdfa.asd@gda.asd",
-        "contactPhone": "adf"
-      }
     }
   ]
 }
