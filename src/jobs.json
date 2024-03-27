@@ -83,20 +83,6 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
-    },
-    {
-      "id": "85b6",
-      "title": "Nahovno job",
-      "type": "Internship",
-      "location": "Palma",
-      "description": "Job kde budes makat a nic ti nezaplatia",
-      "salary": "",
-      "company": {
-        "name": "Palma internship",
-        "description": "Vydieracska firma",
-        "contactEmail": "ha-ha@palma.cat",
-        "contactPhone": "0121451513"
-      }
     }
   ]
 }
