@@ -21,7 +21,7 @@ const JobListings = ({ isHome = false }) => {
   useEffect(() => {
     const fetchJobs = async () => {
       //Showing different results based on URL, we want show 3 results on Homepage
-      const apiURL = isHome ? 'http://localhost:4000/jobs?_limit=3' : 'http://localhost:4000/jobs';
+      const apiURL = isHome ? '/api/jobs?_limit=3' : '/api/jobs';
 
       //try-catch is not obligatory
       try {
@@ -37,6 +37,7 @@ const JobListings = ({ isHome = false }) => {
     };
     //Effect that Fetches data
     fetchJobs();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
