@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // import React from 'react'
 
 //PAGES
@@ -14,8 +15,22 @@ import {
   createBrowserRouter, 
   createRoutesFromElements, 
   RouterProvider} from 'react-router-dom'
-
+ 
 function App() {
+  //POST REQUEST from the new job form
+  const addJob = async (newJobData) => {
+    // console.log(newJobData);
+    const res = await fetch('/api/jobs', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newJobData),
+    });
+    return;
+  };
+
+  //CREATING ROUTER
   const router = createBrowserRouter(
     //CREATING ROUTES DEPENDING ON THE PATH
     createRoutesFromElements(
@@ -23,15 +38,14 @@ function App() {
       <Route path='/' element={<MainLayout />}>
         <Route index element={<Homepage/>} />
         <Route path='/jobs' element={<Jobspage/>} />
-        <Route path='/add-job' element={<AddJobPage/>} />
+        <Route path='/add-job' element={<AddJobPage addJobSubmit={addJob}/>} />
         <Route path='/jobs/:id' element={<JobPage/>} loader={jobLoader}/>
         <Route path='*' element={<NotFound/>} />
       </Route>
-
     )
   )
-  return <RouterProvider router={router}/>
 
+  return <RouterProvider router={router}/>
 }
 
 export default App;

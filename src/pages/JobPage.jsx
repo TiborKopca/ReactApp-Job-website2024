@@ -5,6 +5,7 @@ import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const JobPage = () => {
+  // eslint-disable-next-line no-unused-vars
   const { id } = useParams();
   const job = useLoaderData();
 
