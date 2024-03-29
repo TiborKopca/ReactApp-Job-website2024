@@ -8,7 +8,7 @@ import ViewAllJobs from "../components/ViewAllJobs";
 const Homepage = () => {
   return (
     <>
-      <Hero title = 'Become a Slave Dev'></Hero>
+      <Hero title = 'Become a Real React Dev'></Hero>
       <HomeCards></HomeCards>
       <JobListings isHome={true}></JobListings>
       <ViewAllJobs></ViewAllJobs>
