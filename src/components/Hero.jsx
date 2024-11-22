@@ -1,6 +1,8 @@
-/* eslint-disable react/prop-types */
-//import React from 'react'
+/* HANDLES THE HERO SECTION */
 
+/* eslint-disable react/prop-types */
+
+//Functional Component, with default props
 const Hero = ({title = 'Become a React Dev', subtitle='Find the React job that fits your skills and needs'}) => {
   return (
     <section className="bg-indigo-700 py-20 mb-4">

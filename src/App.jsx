@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 // import React from 'react'
 
-//PAGES
-import Homepage from "./pages/Homepage";
+//MAIN LAYOUT COMPONENT - Navbar, Outlet, Toaster
 import MainLayout from "./layouts/MainLayout";
+//SUBPAGES
+import Homepage from "./pages/Homepage";
 import Jobspage from "./pages/Jobspage";
 import NotFound from "./pages/NotFound";
 import JobPage, { jobLoader } from "./pages/JobPage";
@@ -20,6 +21,7 @@ import {
 
 function App() {
   //ADD NEW JOB/ENTRY POST REQUEST from the new job form
+  //ALL ROUTES TO EXTERNAL API ARE SET UP IN vite.config.js VIA PROXY
   const addJob = async (newJobData) => {
     // console.log(newJobData);
     const res = await fetch("/api/jobs", {

@@ -1,5 +1,5 @@
-// import React from 'react'
-//COMPONENTS
+/* HANDLES THE MAIN LANDING PAGE - HOME */
+
 import Hero from '../components/Hero'
 import HomeCards from "../components/HomeCards";
 import JobListings from "../components/JobListings";

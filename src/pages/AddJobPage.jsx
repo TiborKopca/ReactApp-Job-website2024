@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {toast} from 'react-toastify'
+import Button from "../components/Button";
 
 const AddJobPage = ({addJobSubmit}) => {
     const [title, setTitle] = useState('');
@@ -47,7 +48,9 @@ const AddJobPage = ({addJobSubmit}) => {
 
   return (
     <section className="bg-indigo-50">
-      <div className="container m-auto max-w-2xl py-24">
+      <Button label='Go Back'></Button>
+
+      <div className="container m-auto max-w-2xl pb-12">
         <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
           <form onSubmit={submitForm}>
             <h2 className="text-3xl text-center font-semibold mb-6">Add Job</h2>

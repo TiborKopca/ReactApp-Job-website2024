@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { useParams, useLoaderData , useNavigate} from "react-router-dom"; //to get id
 import {toast} from 'react-toastify'
+import Button from '../components/Button'
 
 const EditJobPage = ({updateJobSubmit}) => {
     const job = useLoaderData();
@@ -48,7 +49,8 @@ const EditJobPage = ({updateJobSubmit}) => {
     
     return (
         <section className="bg-indigo-50">
-        <div className="container m-auto max-w-2xl py-24">
+        <Button to='/jobs' label="Back to Job"></Button>
+        <div className="container m-auto max-w-2xl pb-12">
           <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
             <form onSubmit={submitForm}>
               <h2 className="text-3xl text-center font-semibold mb-6">Update Job</h2>
