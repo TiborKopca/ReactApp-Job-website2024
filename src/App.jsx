@@ -61,22 +61,28 @@ function App() {
     //CREATING ROUTES DEPENDING ON THE PATH
     createRoutesFromElements(
       //PARENT ROUTE WITH SUBROUTES
-      <Route path="/" element={<MainLayout />}>
-        <Route index element={<Homepage />} />
-        <Route path="/jobs" element={<Jobspage />} />
-        <Route path="/add-job" element={<AddJobPage addJobSubmit={addJob} />} />
-        <Route
-          path="/jobs/:id"
-          element={<JobPage deleteJob={deleteJob} />}
-          loader={jobLoader}
-        />
-        <Route
-          path="/edit-job/:id"
-          element={<EditJobPage updateJobSubmit={updateJob} />}
-          loader={jobLoader}
-        />
+      <>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Homepage />} />
+          <Route path="/jobs" element={<Jobspage />} />
+          <Route
+            path="/add-job"
+            element={<AddJobPage addJobSubmit={addJob} />}
+          />
+          <Route
+            path="/jobs/:id"
+            element={<JobPage deleteJob={deleteJob} />}
+            loader={jobLoader}
+          />
+          <Route
+            path="/edit-job/:id"
+            element={<EditJobPage updateJobSubmit={updateJob} />}
+            loader={jobLoader}
+          />
+        </Route>
+        {/* PATH OF 404 PAGE, EXCLUDED FROM THE MAIN LAYOUT */}
         <Route path="*" element={<NotFound />} />
-      </Route>
+      </>
     )
   );
 

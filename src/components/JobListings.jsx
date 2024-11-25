@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
-// import React from 'react'
+
 // import jobs from "../jobs.json"; //deprecated
 
 import { useState, useEffect } from "react";
@@ -9,8 +9,11 @@ import JobListing from "./JobListing";
 import Spinner from "./Spinner";
 
 const JobListings = ({ isHome = false }) => {
+  //To see the content of the jobs.json file (deprecated)
   //console.info(jobs);
-  //const jobListings = isHome ? jobs.slice(0, 3) : jobs; //deprecated from localhost JSON file
+
+  //TO SHOW RECENT JOBS, we need to slice the array, so we can show only 3 jobs (deprecated because of the API)
+  //const jobListings = isHome ? jobs.slice(0, 3) : jobs; 
 
   //default value is empty array, it will make the request when the component loads through the useEffect and fill the array with data from the response from the API
   const [jobs, setJobs] = useState([]);

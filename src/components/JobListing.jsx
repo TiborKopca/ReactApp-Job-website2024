@@ -5,7 +5,7 @@ import {FaMapMarker} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const JobListing = ({ job }) => {
-  //state management for the read more button in the card
+  //state management for the read more button in the card, BOOLEAN
   const [showFullDescription, setShowFullDescription] = useState(false);
   let description = job.description;
   if (!showFullDescription) {
@@ -21,7 +21,7 @@ const JobListing = ({ job }) => {
         </div>
 
         <div className="mb-5">{description}</div>
-
+        {/* MORE BUTTON ON DESCRIPTION OF THE CARD*/}
         <button onClick={()=> setShowFullDescription((prevState) => !prevState )} className="text-indigo-500 mb-5 hover:text-indigo-600">
           {showFullDescription ? "Less" : "More"}
         </button>

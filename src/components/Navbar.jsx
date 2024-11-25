@@ -2,6 +2,7 @@
 
 import logo from "../assets/images/logo.png";
 import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   //Changes the navlink color when the current page is active 
@@ -9,6 +10,14 @@ const Navbar = () => {
     isActive
       ? "text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
       : "text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2";
+
+  //DONT SHOW NAVBAR ON 404 PAGE
+  const location = useLocation();
+  console.log(location);
+  // Don't render the navbar on the 404 page
+  if (location.pathname === "/404") {
+    return null;
+  }
 
   return (
     <>
@@ -25,6 +34,7 @@ const Navbar = () => {
               </NavLink>
               <div className="md:ml-auto">
                 <div className="flex space-x-2">
+                  
                   <NavLink to="/" className={linkClass}>
                     Home
                   </NavLink>

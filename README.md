@@ -23,9 +23,11 @@
 - File structure by Vite
 - Using Link element of React Router
 - Using PropTypes for validation
-- Using React Icons for Icons
-
+- Using React Icons for Icons(Font Awesome 5)
+- Using JSON Object for the data, loaded from the JSON file by JSON server
 - UseNavigate Hook for go back button
+- Using Spinner for loading data from API
+- Background 404 image by [Vecteezy](vecteezy.com)
 
 ## Usage
 1. Run JSON Server
@@ -70,7 +72,12 @@ npm run build
 [Netlify](https://react-job-web.netlify.app/)
 
 ## Screenshots
-![desktop](./src/img/screenshot/screenshot.png)
+![Home](./src/assets/images/screenshots/screenshotHome.png)
+![Jobs](./src/assets/images/screenshots/screenshotJobs.png)
+![Job Detail](./src/assets/images/screenshots/screenshotJobDetail.png)
+![Add Job](./src/assets/images/screenshots/screenshotAddJob.png)
+![Update Job](./src/assets/images/screenshots/screenshotUpdateJob.png)
+![404](./src/assets/images/screenshots/screenshot404.png)
 
 
 ## Author
