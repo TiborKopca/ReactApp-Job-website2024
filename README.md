@@ -38,11 +38,11 @@
 - Using Toastify for displaying success of adding new job, deleting job and updating job, and error messages
 
 ## Usage
-1. Run JSON Server
+1. Run JSON Server running on localhost:4000
 ```js
 npm run server
 ```
-2. Run App
+2. Run App running on localhost:3000
 ```js
 npm run dev
 ```
