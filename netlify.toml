@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/api/*"
-  to = "/data/:splat"
+  to = "/:splat"
   status = 200
