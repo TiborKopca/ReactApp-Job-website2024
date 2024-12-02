@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
-// import React from 'react'
+/* SHOWS A SINGLE JOB LISTING - SINGLE CARD, USED IN JOBSPAGE AND JOB PAGE */
+
+import PropTypes from "prop-types"; // Importing PropTypes
 import { useState } from "react";
 import {FaMapMarker} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
@@ -50,3 +51,7 @@ const JobListing = ({ job }) => {
 };
 
 export default JobListing;
+
+JobListing.propTypes = {
+  job: PropTypes.object,
+};

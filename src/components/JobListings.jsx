@@ -1,13 +1,12 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-key */
+/* SHOWS LISTINGS OF JOBS, USED IN HOMEPAGE AND JOBSPAGE */
 
 // import jobs from "../jobs.json"; //deprecated
-
 import { useState, useEffect } from "react";
 import JobListing from "./JobListing";
 import Spinner from "./Spinner";
+import PropTypes from "prop-types"; // Importing PropTypes
 
+//isHome also defines with conditional rendering what will be the TITLE(H1) of the page (Homepage or Jobspage)
 const JobListings = ({ isHome = false }) => {
   //To see the content of the jobs.json file (deprecated)
   //console.info(jobs);
@@ -20,19 +19,24 @@ const JobListings = ({ isHome = false }) => {
   //loading for the spinner to show loading, once the fetch is complete, we change it to false
   const [loading, setLoading] = useState(true);
 
-  //upon the change of the variable, it will do stuff, empty array = runs once, without it will be forever in loop
+  //FETCH DATA
   useEffect(() => {
+    //ASYNC FUNCTION, writes data into the jobs array
     const fetchJobs = async () => {
       //Showing different results based on URL, we want show 3 results on Homepage
       const apiURL = isHome ? '/api/jobs?_limit=3' : '/api/jobs';
 
       //try-catch is not obligatory
       try {
+        //THIS IS THE MOST IMPORTANT PART OF THE CODE, THIS IS WHERE THE DATA IS FETCHED
         const res = await fetch(apiURL);
         const data = await res.json();
+        //putting the data into the jobs array
         setJobs(data);
+
       } catch (error) {
-        console.log("Error fetching data", error);
+        //TEMP ERROR HANDLING
+        console.error("Error fetching data", error);
       } finally {
         //this will run either way after try & catch
         setLoading(false);
@@ -41,6 +45,7 @@ const JobListings = ({ isHome = false }) => {
     //Effect that Fetches data
     fetchJobs();
   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //upon the change of the variable, it will do stuff, empty array = runs once, without it will be forever in loop
   }, []);
 
   return (
@@ -49,6 +54,8 @@ const JobListings = ({ isHome = false }) => {
         <h2 className="text-3xl font-bold text-indigo-500 mb-6 text-center">
           {isHome ? "Recent Jobs" : "Browse Jobs"}
         </h2>
+
+        {/* THIS IS THE TEMPLATE FOR THE JOBS, IT WILL BE REPEATED FOR EACH JOB, with conditional rendering */}
         {loading ? (
           <Spinner loading={loading} />
         ) : (
@@ -64,3 +71,7 @@ const JobListings = ({ isHome = false }) => {
 };
 
 export default JobListings;
+
+JobListings.propTypes = {
+  isHome: PropTypes.bool,
+};  

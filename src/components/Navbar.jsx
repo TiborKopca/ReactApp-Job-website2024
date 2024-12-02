@@ -13,7 +13,7 @@ const Navbar = () => {
 
   //DONT SHOW NAVBAR ON 404 PAGE
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   // Don't render the navbar on the 404 page
   if (location.pathname === "/404") {
     return null;

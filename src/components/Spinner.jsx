@@ -1,13 +1,14 @@
-/* eslint-disable react/prop-types */
-// import React from 'react'
+
 import ClipLoader from 'react-spinners/ClipLoader'
+import PropTypes from "prop-types"; // Importing PropTypes
+
 //STYLES
 const override = {
     display:'block',
     margin: '100px auto'
 }
 
-const Spinner = ({loading}) => {
+const Spinner = ({ loading }) => {
   return (
     <ClipLoader 
         color='#4338ca'
@@ -19,3 +20,7 @@ const Spinner = ({loading}) => {
 }
 
 export default Spinner
+
+Spinner.propTypes = {
+  loading : PropTypes.bool,
+};

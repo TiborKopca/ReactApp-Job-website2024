@@ -1,16 +1,19 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-undef */
-// import React from 'react'
+/* UPDATE JOB FORM */
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { useParams, useLoaderData , useNavigate} from "react-router-dom"; //to get id
 import {toast} from 'react-toastify'
 import Button from '../components/Button'
 
-const EditJobPage = ({updateJobSubmit}) => {
+const EditJobPage = ({ updateJobSubmit }) => {
+    //Load the job data from the useLoaderData hook from the API
+    //this code needs to be before the useState with loaded data
     const job = useLoaderData();
+    //inicialization of navigate
     const navigate = useNavigate();
+    //get the id from the useParams hook from the URL, because its not loaded
     const { id } = useParams();
-
+    
     //PASS THE DEFAULTS TO THE STATE FROM THE useLoaderData()
     const [title, setTitle] = useState(job.title);
     const [type, setType] = useState(job.type);
@@ -25,8 +28,8 @@ const EditJobPage = ({updateJobSubmit}) => {
     function submitForm(e){
         e.preventDefault();
         
+        //New/Updated data needs to match up the JSON object
         const updatedJob = {
-            //it needs to match up the JSON object
             id,
             title,
             type,
@@ -36,8 +39,8 @@ const EditJobPage = ({updateJobSubmit}) => {
             company:{
                 name: companyName,
                 description: companyDescription,
-                contactEmail,
-                contactPhone,
+                contactEmail: contactEmail,
+                contactPhone: contactPhone,
             },
         };
 
@@ -245,3 +248,7 @@ const EditJobPage = ({updateJobSubmit}) => {
 }
 
 export default EditJobPage
+
+EditJobPage.propTypes = {
+  updateJobSubmit : PropTypes.func,
+};

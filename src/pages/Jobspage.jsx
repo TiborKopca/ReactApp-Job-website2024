@@ -1,4 +1,4 @@
-// import React from 'react'
+/* SHOWS ALL JOBS AVAILABLE = JOB LISTINGS */
 import JobListings from "../components/JobListings"
 
 const Jobspage = () => {

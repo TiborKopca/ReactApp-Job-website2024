@@ -22,12 +22,20 @@
 ## Description & Functionality
 - File structure by Vite
 - Using Link element of React Router
+- Using JSON Server for mock API
 - Using PropTypes for validation
 - Using React Icons for Icons(Font Awesome 5)
-- Using JSON Object for the data, loaded from the JSON file by JSON server
+- Using JSON Object for the data, loaded from the JSON file by JSON server, using useEffect + fetch(fetch on render)
 - UseNavigate Hook for go back button
-- Using Spinner for loading data from API
+- Using Spinner for showing animation when waiting on loading data from API
 - Background 404 image by [Vecteezy](vecteezy.com)
+- Forms with Fields Validation, Error Handling and Toaster Notification
+- Used regular expressions for format checks for email and phone number.
+- Using Validation Feedback: 
+    1.Conditional rendering for error messages below input fields.
+    2.Centralized Validation to handle all validation logic.
+    3.Displayed error messages using formErrors
+- Using Toastify for displaying success of adding new job, deleting job and updating job, and error messages
 
 ## Usage
 1. Run JSON Server
@@ -56,18 +64,6 @@ npm run build
 
 <br>
 
-
-## Description & Functionality
-- File structure by Vite
-- Typography(imported, woff2 format) : Lato-bold
-- Uses prefered color scheme for dark and light mode defined by user system
-- Using PropTypes for validation
-- Using [React Icons library 5.3.0](https://react-icons.github.io/react-icons/) for icons
-- Using form with input and button
-- Using [UUID package 11.0.2](https://www.npmjs.com/package/uuid) to generate unique IDs
-- Using Tooltips on Icons
-- Using LOCAL STORAGE persistence
-
 ## Online Link
 [Netlify](https://react-job-web.netlify.app/)
 
@@ -76,6 +72,7 @@ npm run build
 ![Jobs](./src/assets/images/screenshots/screenshotJobs.png)
 ![Job Detail](./src/assets/images/screenshots/screenshotJobDetail.png)
 ![Add Job](./src/assets/images/screenshots/screenshotAddJob.png)
+![Form Validation](./src/assets/images/screenshots/screenshotFormValidation.png)
 ![Update Job](./src/assets/images/screenshots/screenshotUpdateJob.png)
 ![404](./src/assets/images/screenshots/screenshot404.png)
 

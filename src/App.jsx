@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-// import React from 'react'
 
 //MAIN LAYOUT COMPONENT - Navbar, Outlet, Toaster
 import MainLayout from "./layouts/MainLayout";
@@ -20,7 +18,8 @@ import {
 } from "react-router-dom";
 
 function App() {
-  //ADD NEW JOB/ENTRY POST REQUEST from the new job form
+  //ADD NEW JOB/ENTRY 
+  //POST REQUEST from the new job form === updates the API with the data
   //ALL ROUTES TO EXTERNAL API ARE SET UP IN vite.config.js VIA PROXY
   const addJob = async (newJobData) => {
     // console.log(newJobData);
@@ -31,19 +30,20 @@ function App() {
       },
       body: JSON.stringify(newJobData),
     });
-    return;
+    return res;
   };
 
-  //DELETE JOB/ENTRY
+  //DELETE JOB/ENTRY 
+  //DELETE REQUEST from the job detail page === updates the API with the data
   const deleteJob = async (id) => {
     // console.log('delete',id)
     const res = await fetch(`/api/jobs/${id}`, {
       method: "DELETE",
     });
-    return;
+    return res;
   };
 
-  //UPDATE JOB/ENTRY
+  //UPDATE/EDIT JOB/ENTRY
   const updateJob = async (job) => {
     // console.log(newJobData);
     const res = await fetch(`/api/jobs/${job.id}`, {
@@ -53,7 +53,7 @@ function App() {
       },
       body: JSON.stringify(job),
     });
-    return;
+    return res;
   };
 
   //CREATING ROUTER

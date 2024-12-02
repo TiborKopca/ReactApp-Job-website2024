@@ -1,19 +1,20 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react-refresh/only-export-components */
-// import React from 'react'
-// import { useState,useEffect } from "react"
-import { useParams, useLoaderData , useNavigate} from "react-router-dom"; //to get id
+/* SHOWS THE JOB DETAILS */
+
+import PropTypes from "prop-types"; // Importing PropTypes
+import { useLoaderData , useNavigate} from "react-router-dom"; //to get id
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 
+//delete job is passed from the button and passed to the handler on parent component(App.jsx)
 const JobPage = ({ deleteJob }) => {
-  // eslint-disable-next-line no-unused-vars
-  const { id } = useParams();
+  //What Job/Task is being viewed is being passed from the loaderData
+  //job, job.id is used in the onDeleteClick function
   const job = useLoaderData();
+  //inicialization of navigate
   const navigate = useNavigate();
 
-  //JobId === is passed from the button
+  //JobId === job.id which is passed from the jobLoader by useLoaderData
   const onDeleteClick = (jobId) => {
     const confirm = window.confirm("Are you sure to delete?");
     if (!confirm) {
@@ -21,12 +22,18 @@ const JobPage = ({ deleteJob }) => {
     }
     deleteJob(jobId);
     toast.success('Job deleted successfuly');
-    //REDIRECTION
+    //REDIRECTION (useNavigate)
     navigate('/jobs');
   };
-  //DATA FETCHING WITH USE EFFECT, NOT IN THE USE//
+  //DATA FETCHING WITH USE EFFECT, NOT IN THE USE, id is obtained from { useParams }//
   // const [job, setJob] = useState(null);
   // const [loading, setLoading] = useState(true);
+  
+  /* id is obtained from 
+      import { useParams } from "react-router-dom";
+    this will give us the id of the job/task
+  */
+  // const { id } = useParams();
 
   // useEffect(()=> {
   //     const fetchJob = async () => {
@@ -43,8 +50,6 @@ const JobPage = ({ deleteJob }) => {
   // };
 
   // fetchJob();
-
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
   // },[])
 
   return (
@@ -138,7 +143,8 @@ const JobPage = ({ deleteJob }) => {
   );
 };
 
-//DATA LOADER - FUNCTION OF REACT ROUTER//
+//DATA LOADER - FUNCTION OF REACT ROUTER, Data from loader is being imported in App.jsx//
+//TAKES PARAMS FROM THE URL, RETURNS DATA FROM THE API
 const jobLoader = async ({ params }) => {
   const res = await fetch(`/api/jobs/${params.id}`);
   const data = await res.json();
@@ -146,3 +152,7 @@ const jobLoader = async ({ params }) => {
 };
 
 export { JobPage as default, jobLoader };
+
+JobPage.propTypes = {
+  deleteJob: PropTypes.func,
+};
