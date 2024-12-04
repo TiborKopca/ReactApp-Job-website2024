@@ -2,3 +2,7 @@
   from = "/api/*"
   to = "/:splat"
   status = 200
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
